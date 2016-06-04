@@ -9,14 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var Page_A_component_1 = require('./page_a/Page_A.component');
+var Page_B_component_1 = require('./page_b/Page_B.component');
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = "Angular 2 Template";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>My Angular 2 App</h1>'
-        }), 
+            templateUrl: 'app/app.component.html',
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            providers: [
+                router_deprecated_1.ROUTER_PROVIDERS
+            ]
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: '/Page_A', name: 'Page_A', component: Page_A_component_1.PageAComponent },
+            { path: '/Page_B', name: 'Page_B', component: Page_B_component_1.PageBComponent }
+        ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
